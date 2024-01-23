@@ -6,13 +6,4 @@
     </style>
 
     <style name="Theme.HelloFood" parent="Base.Theme.HelloFood" />
-
-    <style name="Theme.HelloFood.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Theme.HelloFood.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.HelloFood.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

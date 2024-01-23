@@ -26,7 +26,7 @@
                     android:layout_width="412dp"
                     android:layout_height="400dp"
                     android:scaleType="centerCrop"
-                    android:src="@+id/imageView3"
+                    android:src="@tools:sample/avatars"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:src="@+id/favBtn"
+                    android:src="@tools:sample/avatars"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@drawable/favorite_white"
                     tools:layout_editor_absoluteY="365dp" />
@@ -47,7 +47,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:padding="8dp"
-                    android:src="@+id/backBtn"
+                    android:src="@tools:sample/avatars"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/arrow" />
