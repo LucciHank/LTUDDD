@@ -1,0 +1,55 @@
+Index: HelloFood/app/src/main/java/com/example/hellofood/Activity/IntroActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.hellofood.Activity;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport com.example.hellofood.R;\r\n\r\npublic class IntroActivity extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_intro);\r\n    }\r\n}
+===================================================================
+diff --git a/HelloFood/app/src/main/java/com/example/hellofood/Activity/IntroActivity.java b/HelloFood/app/src/main/java/com/example/hellofood/Activity/IntroActivity.java
+--- a/HelloFood/app/src/main/java/com/example/hellofood/Activity/IntroActivity.java	
++++ b/HelloFood/app/src/main/java/com/example/hellofood/Activity/IntroActivity.java	
+@@ -2,15 +2,42 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ 
++import android.graphics.Color;
+ import android.os.Bundle;
++import android.view.View;
+ 
+ import com.example.hellofood.R;
++import com.example.hellofood.databinding.ActivityIntroBinding;
+ 
+-public class IntroActivity extends AppCompatActivity {
++public class IntroActivity extends BaseActivity {
++    ActivityIntroBinding binding;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_intro);
++        binding=ActivityIntroBinding.inflate(getLayoutInflater());
++        setContentView(binding.getRoot());
++
++        setVariable();
++        getWindow().setStatusBarColor(Color.parseColor("FFE485"));
+     }
+-}
+\ No newline at end of file
++
++    private void setVariable() {
++        binding.loginBtn.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++            }
++        });
++
++        binding.signupBtn.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++            }
++        });
++
++
++
++    }
++}
