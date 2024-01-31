@@ -47,7 +47,11 @@
                     android:id="@+id/logoutBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+<<<<<<< Updated upstream
                     android:src="@+id/logoutBtn"
+=======
+                    android:src="@drawable/logout"
+>>>>>>> Stashed changes
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +74,11 @@
                     android:layout_marginEnd="6dp"
                     android:background="@drawable/grey_background"
                     android:padding="12dp"
+<<<<<<< Updated upstream
                     android:src="@+id/filterBtn"
+=======
+                    android:src="@drawable/settings"
+>>>>>>> Stashed changes
                     tools:srcCompat="@drawable/settings" />
 
                 <LinearLayout
@@ -102,7 +110,11 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:padding="4dp"
+<<<<<<< Updated upstream
                         android:src="@+id/searchBtn"
+=======
+                        android:src="@drawable/search_icon"
+>>>>>>> Stashed changes
                         app:srcCompat="@drawable/search_icon" />
                 </LinearLayout>
 
@@ -113,7 +125,11 @@
                     android:layout_marginStart="6dp"
                     android:background="@drawable/grey_background"
                     android:padding="12dp"
+<<<<<<< Updated upstream
                     android:src="@+id/cartBtn"
+=======
+                    android:src="@drawable/basket"
+>>>>>>> Stashed changes
                     tools:srcCompat="@drawable/basket" />
 
             </LinearLayout>

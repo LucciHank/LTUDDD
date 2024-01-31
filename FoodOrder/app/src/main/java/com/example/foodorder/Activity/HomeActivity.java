@@ -142,7 +142,11 @@ private ActivityHomeBinding binding;
         });
     }
     private void initPrice() {
+<<<<<<< Updated upstream
         DatabaseReference myRef = database.getReference("Time");
+=======
+        DatabaseReference myRef = database.getReference("Price");
+>>>>>>> Stashed changes
         ArrayList<Price> list = new ArrayList<>();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
