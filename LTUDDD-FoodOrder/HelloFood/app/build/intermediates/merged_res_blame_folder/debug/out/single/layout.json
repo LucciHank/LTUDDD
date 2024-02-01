@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.example.foodorder.app-mergeDebugResources-35:/layout/viewholder_category.xml",
+        "source": "com.example.foodorder.app-main-38:/layout/viewholder_category.xml"
+    },
+    {
+        "merged": "com.example.foodorder.app-mergeDebugResources-35:/layout/activity_home.xml",
+        "source": "com.example.foodorder.app-main-38:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.example.foodorder.app-mergeDebugResources-35:/layout/sp_item.xml",
+        "source": "com.example.foodorder.app-main-38:/layout/sp_item.xml"
+    },
+    {
+        "merged": "com.example.foodorder.app-mergeDebugResources-35:/layout/activity_signup.xml",
+        "source": "com.example.foodorder.app-main-38:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "com.example.foodorder.app-mergeDebugResources-35:/layout/activity_login.xml",
+        "source": "com.example.foodorder.app-main-38:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.foodorder.app-mergeDebugResources-35:/layout/viewholder_best_deal.xml",
+        "source": "com.example.foodorder.app-main-38:/layout/viewholder_best_deal.xml"
+    }
+]
