@@ -5,12 +5,22 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/HelloFood/app/src/main/res/layout/activity_cart.xml">
+        <config>
+          <theme>@style/Theme.HelloFood</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/HelloFood/app/src/main/res/layout/activity_intro.xml">
         <config>
           <theme>@style/Theme.HelloFood</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/HelloFood/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.HelloFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/HelloFood/app/src/main/res/menu/detail.xml">
         <config>
           <theme>@style/Theme.HelloFood</theme>
         </config>
@@ -27,20 +37,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="995e8ca9-937b-4032-81f9-bc60c069ac0e" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/.idea/LTUDDD.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloFood/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/png_transparent_circle_white_circle_white_monochrome_black_thumbnail.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/java/com/example/hellofood/Activity/CartActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/java/com/example/hellofood/Activity/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/java/com/example/hellofood/Activity/ui/dashboard/DashboardFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/java/com/example/hellofood/Activity/ui/dashboard/DashboardViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/java/com/example/hellofood/Activity/ui/home/HomeFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/java/com/example/hellofood/Activity/ui/home/HomeViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/java/com/example/hellofood/Activity/ui/notifications/NotificationsFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/java/com/example/hellofood/Activity/ui/notifications/NotificationsViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/b00aab10c201831b06594dd77beece42.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/grey_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/ic_home_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/ic_notifications_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/lovepik_com_611641919_a_pink_rectangular_creative_round_body_free_of_charge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/png_clipart_rounded_orange_pink_button_rectangle_basket_ball_orange_cadmium_orange_faded_orange_dusty_orange_rosa_thumbnail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/pngegg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/red_button_background2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/drawable/web_button_gradient_button_png.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/layout/activity_cart.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/layout/fragment_dashboard.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/layout/fragment_notifications.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/menu/bottom_nav_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/navigation/mobile_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloFood/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HelloFood/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloFood/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HelloFood/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HelloFood/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloFood/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloFood/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HelloFood/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="module" />
+    </option>
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
@@ -82,6 +118,7 @@
       <list>
         <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -91,6 +128,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2bBG9QtISaDOwLNT7Yqki86PdIi" />
   <component name="ProjectLevelVcsManager">
@@ -118,6 +158,11 @@
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="android.template.-176256151">
+      <recent name="com.example.hellofood.Activity" />
+    </key>
+  </component>
   <component name="RunManager" selected="Gradle.HelloFood:app [testDebugUnitTest]">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="HelloFood.app.main" />
@@ -239,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705681051303</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit">
+      <option name="closed" value="true" />
+      <created>1706029267176</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706029267177</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
