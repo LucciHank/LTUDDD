@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="blue_gray">#2E4058</color>
+    <color name="grey">#F5F5F5</color>
+    <color name="red">#F65564</color>
+    <color name="white">#F5F4F4</color>
+    <string name="app_name">FoodOrder</string>
+    <string name="gcm_defaultSenderId" translatable="false">249756261497</string>
+    <string name="google_api_key" translatable="false">AIzaSyCH2aNYqm11lIIvaaljq8mKlj7Vqhr8Huw</string>
+    <string name="google_app_id" translatable="false">1:249756261497:android:3fb79c26fa803a8a4b48a8</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCH2aNYqm11lIIvaaljq8mKlj7Vqhr8Huw</string>
+    <string name="google_storage_bucket" translatable="false">foodorder-2b379.appspot.com</string>
+    <string name="project_id" translatable="false">foodorder-2b379</string>
+    <style name="Base.Theme.FoodOrder" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.FoodOrder" parent="Base.Theme.FoodOrder"/>
+</resources>
