@@ -73,7 +73,7 @@ public class CatagoryAdapter extends RecyclerView.Adapter<CatagoryAdapter.viewho
                 break;
             }
         }
-        int drawableResourceId=context.getResources().getIdentifier(items.get(position).getImagePath(),"drawble",holder.itemView.getContext().getPackageName());
+        int drawableResourceId=context.getResources().getIdentifier(items.get(position).getImagePath(),"drawable",holder.itemView.getContext().getPackageName());
 
         Glide.with(context)
                 .load(drawableResourceId)

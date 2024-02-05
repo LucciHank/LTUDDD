@@ -18,7 +18,7 @@
             android:id="@+id/pic"
             android:layout_width="0dp"
             android:layout_height="206dp"
-            android:src="@+id/pic"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -91,12 +91,15 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@+id/imageView3"
-                app:srcCompat="@drawable/time"
+
                 android:layout_marginStart="8dp"
-                app:tint="@color/red"
-                tools:layout_editor_absoluteX="143dp"
-                tools:layout_editor_absoluteY="64dp" />
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="47dp"
+                app:layout_constraintEnd_toStartOf="@+id/textView12"
+                app:layout_constraintStart_toEndOf="@+id/timeTxt"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/time"
+                app:tint="@color/red" />
 
             <TextView
                 android:id="@+id/priceTxt"
