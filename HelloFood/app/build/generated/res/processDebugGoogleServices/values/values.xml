@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">55606618067</string>
+    <string name="google_api_key" translatable="false">AIzaSyDL2B9NJF8yHfzeav43jsOqSUcbqSUQJVU</string>
+    <string name="google_app_id" translatable="false">1:55606618067:android:7c56f3e81f4aee1c16b126</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDL2B9NJF8yHfzeav43jsOqSUcbqSUQJVU</string>
+    <string name="google_storage_bucket" translatable="false">hellofood-69554.appspot.com</string>
+    <string name="project_id" translatable="false">hellofood-69554</string>
+</resources>
