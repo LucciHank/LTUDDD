@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,7 @@ import com.example.foodorder.Domain.Price;
 import com.example.foodorder.Domain.Time;
 import com.example.foodorder.R;
 import com.example.foodorder.databinding.ActivityHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +42,26 @@ private ActivityHomeBinding binding;
         initPrice();
         initBestFood();
         initCategory();
+        setVariable();
+    }
+
+    private void setVariable() {
+        binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+            }
+        });
+        binding.searchBtn.setOnClickListener(v -> {
+            String text=binding.searchEdt.getText().toString();
+            if (!text.isEmpty()){
+                Intent intent= new Intent(HomeActivity.this, ListFoodActivity.class);
+                intent.putExtra("text",text);
+                intent.putExtra("isSearch", true);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initBestFood() {
