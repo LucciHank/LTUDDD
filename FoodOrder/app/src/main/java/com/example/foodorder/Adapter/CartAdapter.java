@@ -1,5 +1,6 @@
-package com.example.foodorder.Adapter.Adapter;
+package com.example.foodorder.Adapter;
 
+import android.content.Context;
 import android.icu.text.Transliterator;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.foodorder.Domain.Foods;
+import com.example.foodorder.Helper.ChangeNumberItemsListener;
+import com.example.foodorder.Helper.ManagmentCart;
+import com.example.foodorder.R;
 
 import java.util.ArrayList;
 
@@ -22,23 +26,23 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
     private ManagmentCart managmentCart;
     ChangeNumberItemsListener changeNumberItemsListener;
 
-    public class CartAdapter(ArrayList<Foods> list, ChangeNumberItemsListener changeNumberItemsListener) {
+    public  CartAdapter(ArrayList<Foods> list, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
         this.list = list;
         this.changeNumberItemsListener = changeNumberItemsListener;
         managmentCart = new ManagmentCart(context);
     }
     @NonNull
     @Override
-    public CartAdapter.viewholder onCreateViewholder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext().inflate(android.R.layout.viewholder_cart,parent,false);
-        return null;
+    public CartAdapter.viewholder onCreateViewholder(@NonNull ViewGroup parent, int viewtype) {
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart,parent,false);
+        return new viewholder(inflate);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.viewholder holder, int position) {
         holder.title.setText(list.get(position).getTitle());
-        holder.feeEachItem.setText("VNĐ" + (list.get(position).getNumberInCart()*list.get(position).getPrice()));
-        holder.totalEachItem.setText(list.get(position).getNumberInCart() + "*VNĐ"+(
+        holder.feeEachItem.setText("$" + (list.get(position).getNumberInCart()*list.get(position).getPrice()));
+        holder.totalEachItem.setText(list.get(position).getNumberInCart() + "*$"+(
                 list.get(position).getPrice()));
         holder.num.setText(list.get(position).getNumberInCart() + "");
 
@@ -47,31 +51,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewholder> {
                 .transform(new CenterCrop(),new RoundedCorners(30))
                 .into(holder.pic);
 
-        holder.plusItem.setOnClickListener(new View.OnClickListener() {
+        holder.plusItem.setOnClickListener(v -> managmentCart.plusNumberItem(list, position, new ChangeNumberItemsListener() {
             @Override
-            public void onClick(View v) {
-                managmentCart.plusNumberItem(list, position, new ChangeNumberItemsListener() {
-                    @Override
-                    public void change() {
-                        notifyDataSetChanged();
-                        changeNumberItemsListener.change();
-                    }
-                });
+            public void change() {
+                notifyDataSetChanged();
+                changeNumberItemsListener.change();
             }
-        });
+        }));
 
-        holder.minusItem.setOnClickListener(new View.OnClickListener() {
+        holder.minusItem.setOnClickListener(v -> managmentCart.minusNumberItem(list, position, new ChangeNumberItemsListener() {
             @Override
-            public void onClick(View v) {
-                managmentCart.minusNumberItem(list, position, new ChangeNumberItemsListener() {
-                    @Override
-                    public void change() {
-                        notifyDataSetChanged();
-                        changeNumberItemsListener.change();
-                    }
-                });
+            public void change() {
+                notifyDataSetChanged();
+                changeNumberItemsListener.change();
             }
-        });
+        }));
 
     }
 

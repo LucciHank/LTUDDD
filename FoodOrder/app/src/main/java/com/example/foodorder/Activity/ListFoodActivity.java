@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+
 import com.example.foodorder.Adapter.FoodListAdapters;
 import com.example.foodorder.Domain.Foods;
 import com.example.foodorder.databinding.ActivityListFoodBinding;
@@ -57,7 +58,7 @@ public class ListFoodActivity extends BaseActivity {
         if(isSearch){
             query=myRef.orderByChild("Title").startAt(searchText).endAt(searchText+"\uf8ff");
         }else{
-            query=myRef.orderByChild("Title").equalTo(categoryId);
+            query=myRef.orderByChild("CategoryId").equalTo(categoryId);
         }
         query.addListenerForSingleValueEvent(new ValueEventListener() {
 
