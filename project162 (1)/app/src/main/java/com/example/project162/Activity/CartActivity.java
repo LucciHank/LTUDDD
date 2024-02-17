@@ -48,7 +48,7 @@ public class CartActivity extends BaseActivity {
     }
 
     private void calculateCart() {
-        double percentTax = 0.02; //percent 2% tax
+        double percentTax = 0.05; //percent 5% tax
         double delivery = 10; // 10 Dollar
 
         tax = Math.round(managmentCart.getTotalFee() * percentTax * 100.0) / 100;
