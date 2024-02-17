@@ -22,7 +22,7 @@ ActivitySignupBinding binding;
         setVariable();
     }
     private void setVariable(){
-        binding.ruturnlogin.setOnClickListener(new View.OnClickListener() {
+        binding.returnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignupActivity.this, LoginActivity.class));
