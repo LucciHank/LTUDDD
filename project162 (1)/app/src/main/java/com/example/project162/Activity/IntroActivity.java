@@ -25,11 +25,11 @@ public class IntroActivity extends BaseActivity {
 
     private void setVariable() {
         binding.loginBtn.setOnClickListener(v -> {
-            if (mAuth.getCurrentUser() != null) {
-                startActivity(new Intent(IntroActivity.this, MainActivity.class));
-            } else {
+            //if (mAuth.getCurrentUser() != null) {
+                //startActivity(new Intent(IntroActivity.this, MainActivity.class));
+            //} else {
                 startActivity(new Intent(IntroActivity.this, LoginActivity.class));
-            }
+            //}
         });
 
         binding.signupBtn.setOnClickListener(v -> startActivity(new Intent(IntroActivity.this, SignupActivity.class)));
