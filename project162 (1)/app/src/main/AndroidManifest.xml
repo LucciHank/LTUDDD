@@ -19,6 +19,9 @@
             android:name=".Activity.DetailActivity"
             android:exported="false" />
         <activity
+            android:name=".Activity.UserProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ListFoodsActivity"
             android:exported="false" />
         <activity

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.example.project162.Adapter.BestFoodsAdapter;
 import com.example.project162.Adapter.CategoryAdapter;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
     private ActivityMainBinding binding;
+    private TextView usernameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,20 @@ public class MainActivity extends BaseActivity {
         initBestFood();
         initCategory();
         setVariable();
+
+        usernameTextView = findViewById(R.id.usernameTextView);
+
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        if (username != null) { usernameTextView.setText( username + "!"); }
+
+
     }
+
+
+
+
+
 
     private void setVariable() {
         binding.logoutBtn.setOnClickListener(v -> {

@@ -28,13 +28,18 @@ ActivityLoginBinding binding;
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email=binding.loginEmail.getText().toString();
-                String password=binding.loginPass.getText().toString();
-                if (!email.isEmpty()&&!password.isEmpty()){
-                    mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, task -> {
-                        if (task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this,"Login is succesful",Toast.LENGTH_SHORT).show();
-                            Intent intent= new Intent(LoginActivity.this, MainActivity.class);
+                String email = binding.loginEmail.getText().toString();
+                String password = binding.loginPass.getText().toString();
+
+                if (!email.isEmpty() && !password.isEmpty()) {
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, task -> {
+                        if (task.isSuccessful()) {
+                            // Get the username from the email
+                            String username = email.split("@")[0];
+
+                            // Pass the username to the MainActivity
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra("username", username);
                             startActivity(intent);
                             finish();
                         }else {
