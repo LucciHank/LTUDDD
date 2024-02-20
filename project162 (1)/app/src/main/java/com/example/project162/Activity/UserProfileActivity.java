@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class UserProfileActivity extends BaseActivity {
-    ActivityUserBinding binding;
     private ImageView comebackBtn;
     private EditText fullnameUser;
     private EditText phoneUser;
@@ -64,22 +63,49 @@ public class UserProfileActivity extends BaseActivity {
 
                 // Save user data to Firebase Realtime Database
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("users");
+                String currentUid = ((BaseActivity) UserProfileActivity.this).getCurrentUserUid();
+                if (currentUid == null) {
+                    // User is not logged in, redirect to login page
+                    startActivity(new Intent(UserProfileActivity.this, LoginActivity.class));
+                    finish();
+                    return;
+                }
+                DatabaseReference myRef = database.getReference("users").child(currentUid);
                 myRef.setValue(user);
             }
         });
+
+        // Load user data from Firebase Realtime Database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("users");
+        String currentUid = ((BaseActivity) UserProfileActivity.this).getCurrentUserUid();
+        if (currentUid == null) {
+            // User is not logged in, redirect to login page
+            startActivity(new Intent(UserProfileActivity.this, LoginActivity.class));
+            finish();
+            return;
+        }
+        DatabaseReference myRef = database.getReference("users").child(currentUid);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Get user data from DataSnapshot
-                User user = dataSnapshot.getValue(User.class);
+                // Check if the user data exists in the database
+                if (dataSnapshot.exists()) {
+                    // Get user data from DataSnapshot
+                    User user = dataSnapshot.getValue(User.class);
 
-                // Display user data on UserProfile Activity
-                fullnameUser.setText(user.getFullName());
-                phoneUser.setText(user.getPhone());
-                addressUser.setText(user.getAddress());
+                    // Display user data on UserProfile Activity
+                    if (user != null) {
+                        fullnameUser.setText(user.getFullName());
+                        phoneUser.setText(user.getPhone());
+                        addressUser.setText(user.getAddress());
+                    }
+                } else {
+                    // User data does not exist in the database, create a new user object
+                    User user = new User("", "", "");
+                    fullnameUser.setText(user.getFullName());
+                    phoneUser.setText(user.getPhone());
+                    addressUser.setText(user.getAddress());
+                }
             }
 
             @Override
@@ -106,39 +132,6 @@ public class UserProfileActivity extends BaseActivity {
             }
         });
 
-        phoneUser.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                checkInputFields();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // Do nothing
-            }
-        });
-
-        addressUser.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                checkInputFields();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // Do nothing
-            }
-        });
 
         // Check input fields on activity creation
         checkInputFields();

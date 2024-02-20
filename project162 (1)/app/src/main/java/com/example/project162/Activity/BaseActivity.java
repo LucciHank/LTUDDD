@@ -22,12 +22,16 @@ public class BaseActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
-
-
-
-
-
-
         getWindow().setStatusBarColor(getResources().getColor(R.color.white));
     }
+
+    public String getCurrentUserUid() {
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            return user.getUid();
+        } else {
+            return null;
+        }
+    }
+
 }
