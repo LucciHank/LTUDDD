@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.project162.Adapter.BestFoodsAdapter;
 import com.example.project162.Adapter.CategoryAdapter;
@@ -47,19 +48,25 @@ public class MainActivity extends BaseActivity {
         initBestFood();
         initCategory();
         setVariable();
+        initUser();
 
+    }
+
+    private void initUser() {
         usernameTextView = findViewById(R.id.usernameTextView);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
         if (username != null) { usernameTextView.setText( username + "!"); }
-
-
+        usernameTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Go to see your profile",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,UserProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
-
-
-
 
 
     private void setVariable() {

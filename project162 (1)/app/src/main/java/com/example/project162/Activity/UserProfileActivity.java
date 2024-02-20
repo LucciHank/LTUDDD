@@ -1,22 +1,20 @@
 package com.example.project162.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
-import com.example.project162.Domain.UserProfile;
+import androidx.annotation.NonNull;
+
+import com.example.project162.Domain.User;
 import com.example.project162.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
+import com.example.project162.databinding.ActivityLoginBinding;
+import com.example.project162.databinding.ActivityUserBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,94 +22,138 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class UserProfileActivity extends BaseActivity {
-    private TextView textViewUserName;
-    private TextView textViewEmail;
-    private TextView textViewPhoneNumber;
-    private TextView textViewAddress;
-    private Button buttonSave;
-    private Button buttonBack;
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseReference;
-    private UserProfile userProfile;
+    ActivityUserBinding binding;
+    private ImageView comebackBtn;
+    private EditText fullnameUser;
+    private EditText phoneUser;
+    private EditText addressUser;
+    private Button saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+        setContentView(R.layout.activity_user);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("UserProfile");
-
-        textViewUserName = findViewById(R.id.usernameTextView);
-        textViewEmail = findViewById(R.id.emailEditText);
-        textViewPhoneNumber = findViewById(R.id.phoneNumberEditText);
-        textViewAddress = findViewById(R.id.addressEditText);
-        buttonSave = findViewById(R.id.saveButton);
-        buttonBack = findViewById(R.id.comebackButton);
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+        comebackBtn = findViewById(R.id.combackBtn);
+        comebackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("result", "Go back to MainActivity");
+                setResult(MainActivity.RESULT_OK, returnIntent);
                 finish();
             }
         });
 
-        buttonSave.setOnClickListener(new View.OnClickListener() {
+        fullnameUser = findViewById(R.id.fullnameUser);
+        phoneUser = findViewById(R.id.phoneUser);
+        addressUser = findViewById(R.id.addressUser);
+        saveBtn = findViewById(R.id.saveBtn);
+
+        // Set click listener for saveBtn
+        saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveUserProfile();
+                // Get user input
+                String fullName = fullnameUser.getText().toString();
+                String phone = phoneUser.getText().toString();
+                String address = addressUser.getText().toString();
+
+                // Create user object
+                User user = new User(fullName, phone, address);
+
+                // Save user data to Firebase Realtime Database
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("users");
+                myRef.setValue(user);
             }
         });
-
-        loadUserProfile();
-    }
-
-    private void loadUserProfile() {
-        String userId = firebaseAuth.getCurrentUser().getUid();
-        databaseReference.child(userId).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("users");
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userProfile = dataSnapshot.getValue(UserProfile.class);
-                if (userProfile != null) {
-                    textViewUserName.setText(userProfile.getUserName());
-                    textViewEmail.setText(userProfile.getEmail());
-                    textViewPhoneNumber.setText(userProfile.getPhoneNumber());
-                    textViewAddress.setText(userProfile.getAddress());
-                }
+                // Get user data from DataSnapshot
+                User user = dataSnapshot.getValue(User.class);
+
+                // Display user data on UserProfile Activity
+                fullnameUser.setText(user.getFullName());
+                phoneUser.setText(user.getPhone());
+                addressUser.setText(user.getAddress());
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                // Handle error
             }
         });
+
+        // Set up text changed listeners for input fields
+        fullnameUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkInputFields();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
+            }
+        });
+
+        phoneUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkInputFields();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
+            }
+        });
+
+        addressUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkInputFields();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
+            }
+        });
+
+        // Check input fields on activity creation
+        checkInputFields();
     }
 
-    private void saveUserProfile() {
-        String userId = firebaseAuth.getCurrentUser().getUid();
-        userProfile.setUserName(textViewUserName.getText().toString());
-        userProfile.setEmail(textViewEmail.getText().toString());
-        userProfile.setPhoneNumber(textViewPhoneNumber.getText().toString());
-        userProfile.setAddress(textViewAddress.getText().toString());
-        databaseReference.child(userId).setValue(userProfile).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(UserProfileActivity.this, "User Profile Saved", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(UserProfileActivity.this, "Failed to Save User Profile", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+    private void checkInputFields() {
+        String fullName = fullnameUser.getText().toString();
+        String phone = phoneUser.getText().toString();
+        String address = addressUser.getText().toString();
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        if (!fullName.isEmpty() && !phone.isEmpty() && !address.isEmpty()) {
+            // Input fields are not empty, enable save button
+            saveBtn.setEnabled(true);
+        } else {
+            // Input fields are empty,
+        }
     }
-
-
-
 }
