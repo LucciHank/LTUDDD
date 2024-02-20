@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -64,5 +65,4 @@ public class CartActivity extends BaseActivity {
 
     private void setVariable() {
         binding.backBtn.setOnClickListener(v -> finish());
-    }
-}
+        binding.buttonOrder.setOnClickListener(v -> {startActivity(new Intent());});}}
