@@ -27,12 +27,16 @@
                     android:id="@+id/billBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
+                    android:layout_marginStart="224dp"
+                    android:layout_marginEnd="8dp"
+
                     android:background="@drawable/grey_background"
                     android:padding="12dp"
-
-                    app:srcCompat="@drawable/notification"
-                    tools:layout_editor_absoluteX="285dp"
-                    tools:layout_editor_absoluteY="0dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/logoutBtn"
+                    app:layout_constraintStart_toEndOf="@+id/usernameTextView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/notification" />
 
                 <TextView
                     android:id="@+id/textView9"
